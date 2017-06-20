@@ -1,0 +1,17 @@
+server:
+  port: 8888
+
+#config server配置
+spring:
+ application:
+  name: config-server
+ cloud:
+  config:
+    server:
+      git:
+        uri: https://github.com/Mingo-xoto/spring-cloud-repo
+        basedir: target/config
+        searchPaths: config-repo
+        force-pull: true #强制从git获取最新内容
+        cloneOnStart: true
+    #label: master

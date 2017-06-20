@@ -1,0 +1,9 @@
+server.port=8888
+
+#\u6fc0\u6d3bprofiles
+spring.application.name=config-server
+
+spring.cloud.config.server.git.uri=https://github.com/Mingo-xoto/spring-cloud-repo
+spring.cloud.config.server.git.basedir=target/config
+spring.cloud.config.server.git.searchPaths=config-repo
+spring.cloud.config.label=master
