@@ -1,5 +1,7 @@
 server:
   port: 8888
+  
+#请求url格式：请求例子：http://localhost:8888/{application}/{profile}/{label},{application}会默认匹配application开头，{label}可以没有，默认为master
 spring:
   application:
     name: config-server
