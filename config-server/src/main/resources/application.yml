@@ -20,7 +20,7 @@ spring:
               force-pull: true
               basedir: target/config2
               searchPaths: config-repo2
-            config-repo1: #请求例子：http://localhost:8888/config-repo2/test获取config-repo2-test.yaml，http://localhost:8888/config-repo2-redis/prd或http://localhost:8888/config-repo2/redis-prd获取config-repo2-redis-prd.yaml
+            config-repo1: #请求例子：http://localhost:8888/config-repo1/test获取application-test.yaml，http://localhost:8888/config-repo1/redis-prd获取application-redis-prd.yaml
               pattern: config-repo1*
               uri: https://github.com/Mingo-xoto/spring-cloud-repo
               cloneOnStart: true
