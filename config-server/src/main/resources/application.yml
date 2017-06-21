@@ -1,17 +1,22 @@
 server:
   port: 8888
-
-#config server配置
 spring:
- application:
-  name: config-server
- cloud:
-  config:
-    server:
-      git:
-        uri: https://github.com/Mingo-xoto/spring-cloud-repo
-        basedir: target/config
-        searchPaths: config-repo
-        force-pull: true #强制从git获取最新内容
-        cloneOnStart: true
-    #label: master
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Mingo-xoto/spring-cloud-repo #不匹配repos下的任何模式则启用该默认
+          basedir: target/config
+          searchPaths: config-repo,config-repo1
+          force-pull: true
+          cloneOnStart: true
+          repos:
+            config-repo2: #请求例子：http://localhost:8888/config-repo2/test获取config-repo2-test.yaml，http://localhost:8888/config-repo2-redis/prd或http://localhost:8888/config-repo2/redis-prd获取config-repo2-redis-prd.yaml
+              pattern: config-repo2*
+              uri: https://github.com/Mingo-xoto/spring-cloud-repo2
+              cloneOnStart: true
+              force-pull: true
+              basedir: target/config2
+              searchPaths: config-repo2

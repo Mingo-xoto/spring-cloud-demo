@@ -36,7 +36,7 @@ public class ConfigController {
 		modelMap.put("redisConfig", redisConfig.getUrl());
 		modelMap.put("test", testConfig.getName());
 		modelMap.put("test2", testConfig2.getName());
-		modelMap.put("account", testConfig2.getAccount());
+		modelMap.put("account", testConfig.getAccount());
 		return modelMap;
 	}
 }
