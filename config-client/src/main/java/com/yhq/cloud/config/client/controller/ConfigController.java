@@ -21,6 +21,12 @@ public class ConfigController {
 	@Value("${topicExchange.routingKey}")
 	private String routingKey;
 
+	@Value("${test.name}")
+	private String name;
+	
+//	@Value("${test.rpc}")
+	private String rpc;
+
 	@Autowired
 	private RedisConfig redisConfig;
 
@@ -32,6 +38,8 @@ public class ConfigController {
 	@RequestMapping("")
 	public ModelMap config() {
 		ModelMap modelMap = new ModelMap();
+		modelMap.put("rpc", rpc);
+		modelMap.put("name", name);
 		modelMap.put("routingKey", routingKey);
 		modelMap.put("redisConfig", redisConfig.getUrl());
 		modelMap.put("test", testConfig.getName());
