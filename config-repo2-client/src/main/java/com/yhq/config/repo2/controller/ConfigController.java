@@ -19,14 +19,10 @@ public class ConfigController {
 	@Value("${topicExchange.routingKey}")
 	private String routingKey;
 	
-	@Value("${topicExchange.queue}")
-	private String queue;
-
 	@RequestMapping("")
 	public ModelMap config() {
 		ModelMap modelMap = new ModelMap();
 		modelMap.put("routingKey", routingKey);
-		modelMap.put("queue", queue);
 		modelMap.put("rpc", rpc);
 		return modelMap;
 	}
