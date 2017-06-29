@@ -4,7 +4,7 @@ spring:
   profiles:
     active: peer3
   application:
-    name: eureka-server-peer3
+    name: eureka-server-peer
 eureka:
   instance:
     hostname: peer3
