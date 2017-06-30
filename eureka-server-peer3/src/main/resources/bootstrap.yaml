@@ -1,10 +1,11 @@
+#应用名相同标记集群中的eureka服务都是同一个
 server:
   port: 8763
 spring:
   profiles:
     active: peer3
   application:
-    name: eureka-server-peer#应用名相同标记集群中的eureka服务都是同一个
+    name: eureka-server-peer
 eureka:
   instance:
     hostname: peer3

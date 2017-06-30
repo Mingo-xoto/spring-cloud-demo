@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @EnableEurekaClient
 @RestController
-@RequestMapping("/eureka/client/")
+@RequestMapping("/eureka/client/1/")
 public class EurekaClientController {
 	@RequestMapping("hello")
 	public String home() {
-		return "Hello world 0";
+		return "Hello world 1";
 	}
 
 }
