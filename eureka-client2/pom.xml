@@ -2,11 +2,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.yhq</groupId>
-	<artifactId>eureka-client1</artifactId>
+	<artifactId>eureka-client2</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>eureka-client1</name>
+	<name>eureka-client2</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
