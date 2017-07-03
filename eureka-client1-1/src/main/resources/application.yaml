@@ -1,0 +1,13 @@
+server:
+  port: 8749
+spring:
+  application:
+    name: eureka-client1
+eureka:
+  client:
+#    healthcheck:
+#      enabled: true #eureka.client.healthcheck.enabled=true只能在application.yml中设置。设置bootstrap.yml中的值将导致不期望的副作用，例如在具有UNKNOWN状态的eureka中注册
+    instance:
+      hostname: eureka.client1
+    serviceUrl:
+      defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/,http://peer3:8763/eureka/,http://peer4:8764/eureka/
