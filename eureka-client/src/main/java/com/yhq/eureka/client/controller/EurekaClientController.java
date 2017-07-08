@@ -1,17 +1,10 @@
 package com.yhq.eureka.client.controller;
 
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
-import com.yhq.eureka.client.feign.EurekaService;
+import com.yhq.eureka.client.service.TestService;
 
 /**
  * @author HuaQi.Yang
@@ -22,37 +15,49 @@ import com.yhq.eureka.client.feign.EurekaService;
 public class EurekaClientController {
 
 	@Autowired
-	private RestTemplate restTemplate;
-
-	@Autowired
-	@LoadBalanced
-	private RestTemplate loadBalanced;
-
-	@Autowired
-	private EurekaService eurekaService;
+	private TestService testService;
 
 	@RequestMapping("hello")
 	public String home() {
-		// ResponseEntity<String> responseEntity =
-		// restTemplate.getForEntity("http://projects.spring.io/spring-cloud/",
-		// String.class);
-		System.out.println("client:" + loadBalanced.hashCode());
-		ResponseEntity<String> responseEurekaEntity = loadBalanced
-				.getForEntity("http://eureka-client1/eureka/client/1/hello", String.class);
-
-		return "Hello world 0:" + responseEurekaEntity.getBody();
+		return testService.home();
 	}
 
 	@RequestMapping("url2")
-	@HystrixCommand(fallbackMethod = "fallBack", commandProperties = @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "3000"))
 	public String url2() {
-		System.out.println("client:" + loadBalanced.hashCode());
-		while (loadBalanced.hashCode() != 1) {
-		}
-		return "url2";
+		return testService.url2();
 	}
 
-	public String fallBack() {
-		return "-断路器：defaultStores-";
+	@RequestMapping("url3")
+	public String url3() {
+		String result = "";
+		try {
+			result = testService.url3();
+		} catch (Exception e) {
+			System.out.println("异常：" + e.getMessage());
+		}
+		return result;
 	}
+
+	@RequestMapping("hystrixBadRequestException")
+	public String hystrixBadRequestException() {
+		String result = "";
+		try {
+			result = testService.hystrixBadRequestException();
+		} catch (Exception e) {
+			result = "异常：" + e.getMessage();
+		}
+		return result;
+	}
+
+	@RequestMapping("serviceException")
+	public String serviceException() {
+		String result = "";
+		try {
+			result = testService.serviceException();
+		} catch (Exception e) {
+			result = "异常：" + e.getMessage();
+		}
+		return result;
+	}
+
 }
