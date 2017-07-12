@@ -1,5 +1,11 @@
 server:
   port: 8750
+debug: false
+logging:
+  level: 
+   org:
+    apache: info
+  file: my.log
 spring:
   application:
     name: eureka-client

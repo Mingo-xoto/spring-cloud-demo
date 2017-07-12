@@ -1,5 +1,7 @@
 package com.yhq.eureka.client.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,11 +16,20 @@ import com.yhq.eureka.client.service.TestService;
 @RequestMapping("/eureka/client/")
 public class EurekaClientController {
 
+	private static Logger logger = LoggerFactory.getLogger(EurekaClientController.class);
 	@Autowired
 	private TestService testService;
 
+	private static int count = 0;
+	
 	@RequestMapping("hello")
 	public String home() {
+//		logger.debug("debug hello");
+//		logger.error("error hello");
+//		logger.info("info hello");
+//		logger.warn("warn hello");
+//		logger.trace("trace hello");
+		System.out.println("请求次数:" + count++);
 		return testService.home();
 	}
 

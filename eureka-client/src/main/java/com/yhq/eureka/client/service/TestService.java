@@ -48,12 +48,14 @@ public class TestService {
 		return "-断路器4：defaultStores-";
 	}
 
+	private static int count = 0;
+
 	@HystrixCommand(fallbackMethod = "fallBack2")
 	public String home() {
 		// ResponseEntity<String> responseEntity =
 		// restTemplate.getForEntity("http://projects.spring.io/spring-cloud/",
 		// String.class);
-		System.out.println("client:" + loadBalanced.hashCode());
+		System.out.println("调用次数:" + count++);
 		ResponseEntity<String> responseEurekaEntity = loadBalanced.getForEntity("http://eureka-client1/eureka/client/1/hello", String.class);
 		int i = 1 / 0;
 		return "Hello world 0:" + responseEurekaEntity.getBody();
