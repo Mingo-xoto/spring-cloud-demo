@@ -7,13 +7,12 @@
 	<name>config-client Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.2.RELEASE</version>
-		<relativePath /> <!-- lookup parent from repository -->
-	</parent>
 
+	<parent>
+		<groupId>com.yhq</groupId>
+		<artifactId>parent_base</artifactId>
+		<version>1.0</version>
+	</parent>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
