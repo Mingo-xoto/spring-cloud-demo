@@ -1,0 +1,15 @@
+spring:
+ profiles:
+  active: eureka
+ rabbitmq:
+  host: localhost
+  port: 5672  #端口，不是web管理端口
+  username: yhq
+  password: faker110
+management:
+ security:
+  enabled:  false
+ cloud:
+  bus:
+   trace:
+    enabled: true
