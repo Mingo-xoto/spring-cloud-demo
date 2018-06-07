@@ -1,6 +1,6 @@
 package com.yhq.eureka.client;
 
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.yhq.config.MySpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
@@ -14,7 +14,7 @@ import org.springframework.web.client.RestTemplate;
 @EnableEurekaClient
 @EnableFeignClients
 @EnableHystrix
-@SpringBootApplication
+@MySpringBootApplication
 public class EurekaClientApplication {
 
 	// rest 请求对象，具有负载均衡的能力

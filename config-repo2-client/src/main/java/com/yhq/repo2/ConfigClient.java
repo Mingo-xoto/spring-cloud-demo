@@ -1,14 +1,14 @@
- package com.yhq.config.repo2;
+ package com.yhq.repo2;
 
+ import com.yhq.config.MySpringBootApplication;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * @author HuaQi.Yang
  * @date 2017年6月19日
  */
 
-@SpringBootApplication
+@MySpringBootApplication
 public class ConfigClient {
 
 	public static void main(String[] args) {

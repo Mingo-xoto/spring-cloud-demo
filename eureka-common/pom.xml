@@ -14,4 +14,10 @@
     </parent>
     <name>eureka-common</name>
     <url>http://maven.apache.org</url>
+    <dependencies>
+        <dependency>
+            <groupId>com.yhq</groupId>
+            <artifactId>bus-common</artifactId>
+        </dependency>
+    </dependencies>
 </project>
