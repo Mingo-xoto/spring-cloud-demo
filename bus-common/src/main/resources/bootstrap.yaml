@@ -1,11 +1,11 @@
 spring:
  profiles:
-  active: eureka
+  active: master
  rabbitmq:
   host: localhost
   port: 5672  #端口，不是web管理端口
   username: yhq
-  password: faker110
+  password: faker,110
 management:
  security:
   enabled:  false

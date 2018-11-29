@@ -8,6 +8,6 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-@SpringBootApplication(scanBasePackages = "com.yhq.config")
+@SpringBootApplication(scanBasePackages = {"com.yhq.config","com.yhq"})
 public @interface MySpringBootApplication {
 }

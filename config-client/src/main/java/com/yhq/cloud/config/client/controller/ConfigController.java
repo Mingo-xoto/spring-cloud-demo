@@ -2,6 +2,7 @@ package com.yhq.cloud.config.client.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +18,9 @@ import com.yhq.cloud.config.client.config.TestConfig2;
 @RestController
 @RequestMapping("/config/")
 public class ConfigController {
+
+	@Autowired
+	private Environment environment;
 
 	@Value("${topicExchange.routingKey}")
 	private String routingKey;
@@ -42,7 +46,7 @@ public class ConfigController {
 		modelMap.put("name", name);
 		modelMap.put("routingKey", routingKey);
 		modelMap.put("redisConfig", redisConfig.getUrl());
-		modelMap.put("test", testConfig.getName());
+		modelMap.put("test", environment.getProperty("app.name"));
 		modelMap.put("test2", testConfig2.getName());
 		modelMap.put("account", testConfig.getAccount());
 		return modelMap;

@@ -144,6 +144,7 @@
           <element id="library" level="project" name="Maven: org.yaml:snakeyaml:1.17" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-actuator:1.5.9.RELEASE" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.8.10" />
+          <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.47" />
         </element>
       </element>
       <element id="directory" name="META-INF">

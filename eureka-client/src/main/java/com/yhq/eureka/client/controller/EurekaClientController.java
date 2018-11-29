@@ -3,6 +3,7 @@ package com.yhq.eureka.client.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,9 +22,13 @@ public class EurekaClientController {
 	private TestService testService;
 
 	private static int count = 0;
-	
+
+	@Value("${test.value1}")
+	private String value;
+
 	@RequestMapping("hello")
 	public String home() {
+		System.out.println("value:"+value);
 //		logger.debug("debug hello");
 //		logger.error("error hello");
 //		logger.info("info hello");
