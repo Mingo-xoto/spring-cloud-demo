@@ -28,6 +28,11 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-config-server</artifactId>
         </dependency>
+        <!--config ：配置更新成功监听器，使得config-server接收bus/refresh的post请求后能正常通知config-client刷新配置信息-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-monitor</artifactId>
+        </dependency>
         <!-- <dependency> -->
         <!-- <groupId>org.springframework.cloud</groupId> -->
         <!-- <artifactId>spring-cloud-starter-eureka</artifactId> -->

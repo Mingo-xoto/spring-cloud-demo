@@ -1,6 +1,8 @@
 package com.yhq.repo2.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,8 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/config/")
 public class ConfigController {
 
-	@Value("${test.rpc}")
-	private String rpc;
+	@Autowired
+	private Environment environment;
 
 	@Value("${topicExchange.routingKey}")
 	private String routingKey;
@@ -23,7 +25,7 @@ public class ConfigController {
 	public ModelMap config() {
 		ModelMap modelMap = new ModelMap();
 		modelMap.put("routingKey", routingKey);
-		modelMap.put("rpc", rpc);
+		modelMap.put("appname", environment.getProperty("app.name"));
 		return modelMap;
 	}
 }

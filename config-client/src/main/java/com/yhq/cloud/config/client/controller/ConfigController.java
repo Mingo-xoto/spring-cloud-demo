@@ -1,5 +1,8 @@
 package com.yhq.cloud.config.client.controller;
 
+import com.yhq.cloud.config.client.config.RedisConfig;
+import com.yhq.cloud.config.client.config.TestConfig;
+import com.yhq.cloud.config.client.config.TestConfig2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
@@ -7,9 +10,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.yhq.cloud.config.client.config.RedisConfig;
-import com.yhq.cloud.config.client.config.TestConfig;
-import com.yhq.cloud.config.client.config.TestConfig2;
+import java.util.List;
 
 /**
  * @author HuaQi.Yang
@@ -48,7 +49,8 @@ public class ConfigController {
 		modelMap.put("redisConfig", redisConfig.getUrl());
 		modelMap.put("test", environment.getProperty("app.name"));
 		modelMap.put("test2", testConfig2.getName());
-		modelMap.put("account", testConfig.getAccount());
+		modelMap.put("account", environment.getProperty("my.account[0]"));
+		modelMap.put("accountList", environment.getProperty("my.account", List.class));
 		return modelMap;
 	}
 }

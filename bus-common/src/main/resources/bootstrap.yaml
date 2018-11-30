@@ -1,6 +1,11 @@
 spring:
  profiles:
   active: master
+ cloud:
+  config:
+   profile: rabbitmq,test,redis
+   label: master
+   uri: http://localhost:8888
  rabbitmq:
   host: localhost
   port: 5672  #端口，不是web管理端口
