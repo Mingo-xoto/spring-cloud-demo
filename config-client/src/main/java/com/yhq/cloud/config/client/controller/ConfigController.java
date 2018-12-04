@@ -3,6 +3,7 @@ package com.yhq.cloud.config.client.controller;
 import com.yhq.cloud.config.client.config.RedisConfig;
 import com.yhq.cloud.config.client.config.TestConfig;
 import com.yhq.cloud.config.client.config.TestConfig2;
+import com.yhq.cloud.config.client.vo.TestVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
@@ -52,5 +53,12 @@ public class ConfigController {
 		modelMap.put("account", environment.getProperty("my.account[0]"));
 		modelMap.put("accountList", environment.getProperty("my.account", List.class));
 		return modelMap;
+	}
+
+
+	@RequestMapping(value = "test/vo")
+	public TestVo getTestVo(int year,int month,int day,int hour,int minute,int second)  {
+
+		return TestVo.getInstance(year, month, day,hour,minute,second);
 	}
 }

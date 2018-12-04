@@ -1,10 +1,9 @@
 package com.yhq.cloud.config.client.config;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
+
+import java.util.List;
 
 /**
  * @author HuaQi.Yang
@@ -14,7 +13,6 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "my")
 public class TestConfig {
 
-	@Value("${app.name}")
 	private String name;
 
 	private List<String> account;
