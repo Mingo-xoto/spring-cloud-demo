@@ -1,5 +1,6 @@
 package com.yhq.cloud.config.client.controller;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.yhq.cloud.config.client.config.RedisConfig;
 import com.yhq.cloud.config.client.config.TestConfig;
 import com.yhq.cloud.config.client.config.TestConfig2;
@@ -11,6 +12,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -57,8 +59,8 @@ public class ConfigController {
 
 
 	@RequestMapping(value = "test/vo")
-	public TestVo getTestVo(int year,int month,int day,int hour,int minute,int second)  {
-
+	public TestVo getTestVo(int year, int month, int day, int hour, int minute, int second, @JsonFormat(pattern = "HH:mm",timezone="GMT+8")Date date)  {
+		System.out.println(date);
 		return TestVo.getInstance(year, month, day,hour,minute,second);
 	}
 }

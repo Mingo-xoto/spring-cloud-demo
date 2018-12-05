@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.TimeZone;
 
 /**
  * @author HuaQi.Yang
@@ -61,7 +62,7 @@ public class EurekaClientController {
 
     private static void writeWrongTimeToFile() {
         int days[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-        File file = new File("D:/wrondTimeScare_GregorianCalendar1.txt");
+        File file = new File("D:/wrondTimeScare_GregorianCalendar_afterdaylightsavingtime.txt");
         FileWriter fw = null;
         try {
             fw = new FileWriter(file);
@@ -105,16 +106,22 @@ public class EurekaClientController {
      *
      */
     private static void writeWrongTimeToFile(int year, int month, int day, int hour, int minute, int second, FileWriter fw) throws IOException {
+        TimeZone timeZone =TimeZone.getTimeZone("Asia/Shanghai");
         long ONE_DAY_TIME_MILI = 24 * 60 * 60 * 1000L;
         //前一天时间点
         TimeVo preTimeVo = TimeVo.getInstance(year, month, day, hour, minute, second);
         Calendar preDay = preTimeVo.calendar;
         long preDay_long = preTimeVo.timeMili;
-
+        if(timeZone.inDaylightTime(preDay.getTime())){
+            preDay_long += 3600000;
+        }
         //后一天时间点
         TimeVo afterTimeVo = TimeVo.getInstance(year, month, day + 1, hour, minute, second);
         Calendar afterDay = afterTimeVo.calendar;
         long afterDay_long = afterTimeVo.timeMili;
+        if(timeZone.inDaylightTime(afterDay.getTime())){
+            afterDay_long += 3600000;
+        }
         String preStr = sf.format(preDay.getTime());
         String afterStr = sf.format(afterDay.getTime());
 //		System.out.println(preStr +"至" + afterStr);
