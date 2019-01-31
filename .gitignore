@@ -3,3 +3,16 @@
 /.settings
 /.project
 /.classpath
+/config-server-by-client/config-server-by-client.iml
+/my.log.2018-11-29.0284754258708121.tmp
+/parent_base.iml
+/my.log
+/my.log.2018-11-29.0.gz
+
+/config-server/config-server.iml
+/config-server/.idea/
+/config-server-by-client/src/main/main1.iml
+/eureka-client3/eureka-client3.iml
+/eureka-client2/eureka-client2.iml
+/eureka-client1-1/eureka-client1-1.iml
+/.idea/
