@@ -21,6 +21,10 @@ public class TestConfig {
 		return name;
 	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public List<String> getAccount() {
 		return account;
 	}

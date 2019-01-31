@@ -28,6 +28,7 @@
         <module>eureka-server-peer2</module>
         <module>eureka-server-peer3</module>
         <module>eureka-server-peer4</module>
+        <module>config-server-by-client</module>
         <module>bus-demo</module>
         <module>bus-common</module>
     </modules>
@@ -98,6 +99,11 @@
             <dependency>
                 <groupId>com.yhq</groupId>
                 <artifactId>config-server</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yhq</groupId>
+                <artifactId>config-server-by-client</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>

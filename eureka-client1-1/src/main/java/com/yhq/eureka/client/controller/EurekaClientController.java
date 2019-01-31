@@ -50,15 +50,15 @@ public class EurekaClientController {
     }
 
 
-    public static void main(String[] args) {
-        writeWrongTimeToFile();
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(653407185528L);
-		System.out.println(sf.format(calendar.getTime()));
-        Calendar calendar2 = Calendar.getInstance();
-        calendar2.setTimeInMillis(653497185528L);
-		System.out.println(sf.format(calendar2.getTime()));
-    }
+//    public static void main(String[] args) {
+//        writeWrongTimeToFile();
+//        Calendar calendar = Calendar.getInstance();
+//        calendar.setTimeInMillis(653407185528L);
+//		System.out.println(sf.format(calendar.getTime()));
+//        Calendar calendar2 = Calendar.getInstance();
+//        calendar2.setTimeInMillis(653497185528L);
+//		System.out.println(sf.format(calendar2.getTime()));
+//    }
 
     private static void writeWrongTimeToFile() {
         int days[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
